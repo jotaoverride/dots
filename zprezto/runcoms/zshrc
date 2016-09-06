@@ -1,0 +1,24 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+set -o emacs
+
+# Env
+export GOPATH="$HOME/repos/go"
+
+# Alias
+alias token='echo -n `oathtool --totp $HASH_FOR_VPN_TOKEN` | tee >(pbcopy)'
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jalcoleas/.sdkman"
+[[ -s "/Users/jalcoleas/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jalcoleas/.sdkman/bin/sdkman-init.sh"
